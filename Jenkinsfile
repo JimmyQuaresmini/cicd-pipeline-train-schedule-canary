@@ -16,9 +16,8 @@ pipeline {
                 branch 'master'
             }
             steps {
-                script {
-                    //DOCKER_IMAGE_NAME
-                    app = docker.build("jimmyqua/train-schedule")
+                script {                    
+                    app = docker.build(DOCKER_IMAGE_NAME)
                     app.inside {
                         sh 'echo Hello, World!'
                     }
