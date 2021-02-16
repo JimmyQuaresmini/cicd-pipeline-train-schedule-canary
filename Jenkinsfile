@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {        
-        DOCKER_IMAGE_NAME = "jimmyqua/train-schedule"
+        DOCKER_IMAGE_NAME = "jimmyqua/train-schedule2"
     }
     stages {
         stage('Build') {
@@ -17,7 +17,7 @@ pipeline {
             }
             steps {
                 script {                    
-                    app = docker.build("${DOCKER_IMAGE_NAME}")
+                    app = docker.build(DOCKER_IMAGE_NAME)
                     app.inside {
                         sh 'echo Hello, World!'
                     }
